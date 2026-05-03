@@ -5,17 +5,29 @@
 }
 
 body {
-  background-color: #8b8b8b;
+  /* background-color: #8b8b8b; */
 }
 .container {
   display: flex;
 }
+
+.menu-wrapper {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  z-index: 1000;
+}
+
 button.menu-btn {
-  position: relative;
+  background-color: white;
+  border-radius: 6px;
+  padding: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  border: none;
   cursor: pointer;
   z-index: 1000;
 }
-button.active {
+button.menu-btn.active {
   display: none;
 }
 
@@ -28,6 +40,23 @@ button.active {
   background-color: #f1f1f1;
   padding: 20px;
   border-right: solid black 1px;
+  transition: 0.4s;
+  z-index: 999;
+}
+
+.navigation button.closeIcon {
+  border: none;
+  cursor: pointer;
+  background: none;
+  padding: 4px;
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 20px;
+  transition: background 0.2s;
+}
+
+.navigation button.closeIcon:hover {
+  background-color: #e2e2e2;
 }
 
 .navigation #MenuBtn {
@@ -36,7 +65,6 @@ button.active {
 
 .navigation.active {
   left: 0;
-  transition: 0.4s;
 }
 
 .navigation ul {
@@ -44,10 +72,12 @@ button.active {
 }
 
 .navigation ul li {
-  padding: 5px;
+  padding: 8px 10px;
+  border-radius: 6px;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+  transition: background 0.2s;
 }
 
 .navigation ul li svg {
@@ -56,6 +86,10 @@ button.active {
 
 .navigation ul li:hover {
   background-color: #e2e2e2;
+  padding-left: 12px;
+  transition:
+    padding 0.2s,
+    background 0.2s;
 }
 
 .navigation ul li a {
@@ -66,10 +100,14 @@ button.active {
 
 .todoList {
   position: fixed;
-  padding: 20px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 60px 20px 20px;
+  transition: 0.4s;
 }
 
 .todoList.active {
   left: 250px;
-  transition: 0.4s;
 }
