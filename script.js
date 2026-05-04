@@ -20,6 +20,22 @@ const closeSidebar = () => {
 hamburgerBtn.addEventListener("click", openSidebar);
 closeBtn.addEventListener("click", closeSidebar);
 
+// Task Creation Functionality
+const taskBtn = document.getElementsByClassName("add-task")[0];
+const taskModal = document.getElementById("task");
+
+const closeModalBtn = document.getElementsByClassName("closeModal")[0];
+const createTask = () => {
+  taskModal.classList.toggle("active");
+};
+
+const closeTaskModal = () => {
+  taskModal.classList.remove("active");
+};
+
+taskBtn.addEventListener("click", createTask);
+closeModalBtn.addEventListener("click", closeTaskModal);
+
 // Date Display Functionality
 const dateEL = document.getElementById("todoDate");
 
