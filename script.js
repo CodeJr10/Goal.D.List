@@ -1,3 +1,4 @@
+// Sidebar Toggle Functionality
 const hamburgerBtn = document.getElementById("MenuBtn");
 const navSidebar = document.getElementsByClassName("navigation")[0];
 const mainContent = document.getElementsByClassName("todoList")[0];
@@ -18,4 +19,11 @@ const closeSidebar = () => {
 // Event Listeners
 hamburgerBtn.addEventListener("click", openSidebar);
 closeBtn.addEventListener("click", closeSidebar);
-// btn clicked -> hamburger = active (hids) -> navbar toggles active (shows) -> main content toggles active (moves right)
+
+// Date Display Functionality
+const dateEL = document.getElementById("todoDate");
+
+const today = new Date();
+const options = { weekday: "long", month: "long", day: "numeric" };
+
+dateEL.textContent = today.toLocaleDateString("en-US", options);

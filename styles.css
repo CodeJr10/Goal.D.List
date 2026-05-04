@@ -31,6 +31,8 @@ button.menu-btn.active {
   display: none;
 }
 
+/* Navigation Sidebar */
+
 .navigation {
   position: fixed;
   left: -250px;
@@ -98,6 +100,8 @@ button.menu-btn.active {
   font-size: 18px;
 }
 
+/* Main Content Area */
+
 .todoList {
   position: fixed;
   left: 0;
@@ -110,4 +114,11 @@ button.menu-btn.active {
 
 .todoList.active {
   left: 250px;
+}
+
+/* date display */
+.todoDate {
+  font-size: 18px;
+  color: #666;
+  margin-top: 10px;
 }
