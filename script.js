@@ -22,15 +22,20 @@ closeBtn.addEventListener("click", closeSidebar);
 
 // Task Creation Functionality
 const taskBtn = document.getElementsByClassName("add-task")[0];
-const taskModal = document.getElementById("task");
-
+const taskModal = document.getElementById("taskModal");
+const overlayEffect = document.getElementsByClassName("overlay")[0];
 const closeModalBtn = document.getElementsByClassName("closeModal")[0];
+
+console.log({ taskBtn, taskModal, overlayEffect, closeModalBtn });
+
 const createTask = () => {
   taskModal.classList.toggle("active");
+  overlayEffect.classList.toggle("active");
 };
 
 const closeTaskModal = () => {
   taskModal.classList.remove("active");
+  overlayEffect.classList.remove("active");
 };
 
 taskBtn.addEventListener("click", createTask);

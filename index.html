@@ -139,34 +139,6 @@
           <button class="add-task">+ Add Task</button>
         </section>
 
-        <div class="task" id="task">
-          <button class="closeModal">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              heigh
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="size-6"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </button>
-          <label for="task1" class="task-details">Task Title</label>
-          <input type="text" id="task" />
-          <label for="task1">Task Description</label>
-          <input type="text" id="taskDescription" />
-
-          <label for="task1" class="task-details">Select Due Date</label>
-          <input type="date" id="taskDate" />
-
-          <button class="add-task-btn">Add Task</button>
-        </div>
-
         <div class="task-status">
           <button class="all filter-btn">All</button>
           <button class="done filter-btn">Done</button>
@@ -174,6 +146,36 @@
           <button class="overdue filter-btn">Overdue</button>
         </div>
       </div>
+    </div>
+
+    <!-- Overlay  -->
+    <div class="overlay"></div>
+    <div class="taskModal" id="taskModal">
+      <button class="closeModal">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          heigh
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="size-6"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </button>
+      <label for="task1" class="task-details">Task Title</label>
+      <input type="text" id="task-title" />
+      <label for="task1" class="task-details">Task Description</label>
+      <input type="text" id="taskDescription" />
+
+      <label for="task1" class="task-details">Select Due Date</label>
+      <input type="date" id="taskDate" />
+
+      <button class="add-task-btn">Add Task</button>
     </div>
     <script src="script.js"></script>
   </body>
