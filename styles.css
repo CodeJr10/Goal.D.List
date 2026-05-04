@@ -6,6 +6,7 @@
 
 body {
   /* background-color: #8b8b8b; */
+  font-family: Poppins, sans-serif;
 }
 .container {
   display: flex;
@@ -116,9 +117,85 @@ button.menu-btn.active {
   left: 250px;
 }
 
+.todoList h1 {
+  font-size: 32px;
+  text-align: center;
+}
+
 /* date display */
 .todoDate {
   font-size: 18px;
   color: #666;
   margin-top: 10px;
+}
+
+/* Add Task Section */
+.todoList section .add-task-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+.todoList section .add-task-input:focus {
+  outline: none;
+
+  border: 1px solid #0058fc; /* matches your button color */
+  box-shadow: 0 0 0 3px rgba(0, 88, 252, 0.15); /* soft glow */
+}
+
+.todoList section .add-task {
+  background-color: #0058fc;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.todoList section .add-task:hover {
+  background-color: #0041c4;
+  transition: background-color 0.2s;
+}
+
+.todoList .task-status {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.todoList .task-status .filter-btn {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-right: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+.todoList .task-status .filter-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.todoList .task-status .filter-btn:hover::after {
+  opacity: 1;
+}
+
+.todoList .task-status .all {
+  background-color: #a3a0a0d1;
+  /* border-radius: 1px solid black; */
+}
+.todoList .task-status .due {
+  background-color: #ffe100;
+}
+
+.todoList .task-status .overdue {
+  background-color: #ff4d4d;
+}
+
+.todoList .task-status .done {
+  background-color: #09ff00;
 }

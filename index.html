@@ -131,10 +131,20 @@
         <p class="todoDate" id="todoDate"></p>
 
         <section>
-          <button>+ New Project</button>
-          <input type="text" placeholder="Add a new task..." />
-          <button>Add Task</button>
+          <input
+            type="text"
+            class="add-task-input"
+            placeholder="Add a new task..."
+          />
+          <button class="add-task">+Add</button>
         </section>
+
+        <div class="task-status">
+          <button class="all filter-btn">All</button>
+          <button class="done filter-btn">Done</button>
+          <button class="due filter-btn">Due</button>
+          <button class="overdue filter-btn">Overdue</button>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>
