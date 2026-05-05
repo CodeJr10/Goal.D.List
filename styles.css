@@ -165,7 +165,7 @@ button.menu-btn.active {
   transition: background-color 0.2s;
 }
 
-/* Task Creation */
+/* Task Creation Modal */
 .taskModal {
   position: fixed;
   top: 50%;
@@ -201,17 +201,17 @@ button.closeModal {
   font-weight: 600;
 }
 
-#task-title {
+.task-Title {
   margin-bottom: 20px;
   padding: 8px 20px;
 }
 
-#taskDescription {
+.task-Description {
   margin-bottom: 20px;
   padding: 38px 20px;
 }
 
-#taskDate {
+.task-Date {
   margin-bottom: 20px;
   padding: 8px 20px;
 }
