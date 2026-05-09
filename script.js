@@ -47,23 +47,49 @@ const getTaskTitle = document.getElementById("task-Title");
 const getTaskDescription = document.getElementById("task-Description");
 const getTaskDate = document.getElementById("task-Date");
 
+//Flow -> Task Card (main div)
+// 2nd Flow -> Task Card Header (Title + Due Date + Task Status)
+
 const createNewTask = () => {
   const newDiv = document.createElement("div");
   newDiv.classList.add("task-card");
 
+  const newHeader = document.createElement("div");
+  // first section of the task card which will contain the title, due date and status badge
+  newHeader.classList.add("task-card-header");
+  newDiv.appendChild(newHeader);
   const taskTitle = document.createElement("h3");
   taskTitle.classList.add("task-title");
   taskTitle.textContent = getTaskTitle.value;
-  newDiv.appendChild(taskTitle);
+  newHeader.appendChild(taskTitle);
+
+  const taskDate = document.createElement("h5");
+  taskDate.textContent = getTaskDate.value;
+  newHeader.appendChild(taskDate);
+
+  const taskStatusBadge = document.createElement("span");
+  taskStatusBadge.textContent = "Due";
+  taskStatusBadge.classList.add("task-card-badge", "due");
+  newHeader.appendChild(taskStatusBadge);
+
+  const editBtn = document.createElement("button");
+  editBtn.textContent = "Edit";
+  editBtn.classList.add("edit-btn");
+  newHeader.appendChild(editBtn);
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "Delete";
+  deleteBtn.classList.add("delete-btn");
+  newHeader.appendChild(deleteBtn);
+
+  const taskDescriptionSection = document.createElement("div"); // 2nd section for task description
+  taskDescriptionSection.classList.add("task-card-description");
+  newDiv.appendChild(taskDescriptionSection);
 
   const taskDescription = document.createElement("p");
   taskDescription.classList.add("task-Description");
   taskDescription.textContent = getTaskDescription.value;
-  newDiv.appendChild(taskDescription);
-
-  const taskDate = document.createElement("h5");
-  taskDate.textContent = getTaskDate.value;
-  newDiv.appendChild(taskDate);
+  taskDescriptionSection.appendChild(taskDescription);
 
   const taskContainer = document.getElementsByClassName("task-list")[0];
   taskContainer.appendChild(newDiv);
