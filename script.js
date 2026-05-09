@@ -67,10 +67,6 @@ const createNewTask = () => {
   taskDate.textContent = getTaskDate.value;
   newHeader.appendChild(taskDate);
 
-  const taskStatusBadge = document.createElement("span");
-  taskStatusBadge.textContent = "Due";
-  taskStatusBadge.classList.add("task-card-badge", "due");
-  newHeader.appendChild(taskStatusBadge);
 
   const editBtn = document.createElement("button");
   editBtn.textContent = "Edit";
@@ -90,6 +86,17 @@ const createNewTask = () => {
   taskDescription.classList.add("task-Description");
   taskDescription.textContent = getTaskDescription.value;
   taskDescriptionSection.appendChild(taskDescription);
+
+  const taskFooter = document.createElement("div");
+  taskFooter.classList.add("task-card-footer");
+  newDiv.appendChild(taskFooter);
+
+  
+  const taskStatusBadge = document.createElement("span");
+  taskStatusBadge.textContent = "Due";
+  taskStatusBadge.classList.add("task-card-badge", "due");
+  taskFooter.appendChild(taskStatusBadge);
+
 
   const taskContainer = document.getElementsByClassName("task-list")[0];
   taskContainer.appendChild(newDiv);

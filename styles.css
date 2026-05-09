@@ -289,7 +289,11 @@ button.closeModal {
 .task-list .task-card .task-card-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 10px;
+}
+
+.task-list .task-card .task-card-header .task-title {
+  flex: 1;
 }
 
 .task-list .task-card .task-card-header button.edit-btn {
