@@ -64,9 +64,13 @@ const createNewTask = () => {
   newHeader.appendChild(taskTitle);
 
   const taskDate = document.createElement("h5");
-  taskDate.textContent = getTaskDate.value;
+  const rawDate = new Date(getTaskDate.value);
+  taskDate.textContent = rawDate.toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
   newHeader.appendChild(taskDate);
-
 
   const editBtn = document.createElement("button");
   editBtn.textContent = "Edit";
@@ -91,12 +95,10 @@ const createNewTask = () => {
   taskFooter.classList.add("task-card-footer");
   newDiv.appendChild(taskFooter);
 
-  
   const taskStatusBadge = document.createElement("span");
   taskStatusBadge.textContent = "Due";
   taskStatusBadge.classList.add("task-card-badge", "due");
   taskFooter.appendChild(taskStatusBadge);
-
 
   const taskContainer = document.getElementsByClassName("task-list")[0];
   taskContainer.appendChild(newDiv);
