@@ -41,6 +41,21 @@ const closeTaskModal = () => {
 taskBtn.addEventListener("click", openTaskModal);
 closeModalBtn.addEventListener("click", closeTaskModal);
 
+//Update task status based on due date
+// If current date is past the due date -> overdue
+// If current date is same as due date -> due
+
+const updateTaskStatus = (dateValue) => {
+  const currentDate = new Date();
+  const taskDate = new Date(dateValue.replace(/-/g, "/")); // Convert to Date object and fix timezone issues
+
+  if (currentDate > taskDate) {
+    return "Overdue";
+  } else {
+    return "Due";
+  }
+};
+
 // Task Creation Functionality
 const createTaskBtn = document.getElementById("add-task-btn"); // create task button inside the modal
 const getTaskTitle = document.getElementById("task-Title");
@@ -96,8 +111,9 @@ const createNewTask = () => {
   newDiv.appendChild(taskFooter);
 
   const taskStatusBadge = document.createElement("span");
-  taskStatusBadge.textContent = "Due";
-  taskStatusBadge.classList.add("task-card-badge", "due");
+  const statusData = updateTaskStatus(getTaskDate.value);
+  taskStatusBadge.textContent = statusData;
+  taskStatusBadge.classList.add("task-card-badge", statusData.toLowerCase());
   taskFooter.appendChild(taskStatusBadge);
 
   const taskContainer = document.getElementsByClassName("task-list")[0];
@@ -109,8 +125,8 @@ const createNewTask = () => {
   getTaskDate.value = "";
   closeTaskModal();
 };
-
 createTaskBtn.addEventListener("click", createNewTask);
+
 // Date Display Functionality
 const dateEL = document.getElementById("todoDate");
 
