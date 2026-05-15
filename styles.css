@@ -257,15 +257,15 @@ button.closeModal {
   background-color: #a3a0a0d1;
   /* border-radius: 1px solid black; */
 }
-.todoList .task-status .due {
+.todoList .task-status.due {
   background-color: #ffe100;
 }
 
-.todoList .task-status .overdue {
+.todoList .task-status.overdue {
   background-color: #ff4d4d;
 }
 
-.todoList .task-status .done {
+.todoList .task-status.done {
   background-color: #09ff00;
 }
 
