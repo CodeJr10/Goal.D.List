@@ -65,6 +65,19 @@ const getTaskDate = document.getElementById("task-Date");
 //Flow -> Task Card (main div)
 // 2nd Flow -> Task Card Header (Title + Due Date + Task Status)
 
+const saveTask = (task) => {
+  // read if tasks are saved, if not then save empty array []
+  //   You could check if it's empty first, but you'd still need to parse it either way. Here's why:
+  // Even if local storage has data in it, what comes out is always a string:
+  // javascript'[{"title":"Buy groceries","date":"2026-05-10"}]'
+  // You can't call .push() on a string. You need an actual array to push into. So even if it's not empty you still have to parse it to turn it back into a real array before you can do anything with it.
+  const existingTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+  existingTasks.push(task); // save new task
+
+  localStorage.setItem("tasks", JSON.stringify(existingTasks));
+};
+
 const buildTaskCard = (task) => {
   const newDiv = document.createElement("div");
   newDiv.classList.add("task-card");
@@ -129,7 +142,7 @@ const createNewTask = () => {
     description: getTaskDescription.value,
     date: getTaskDate.value,
   };
-
+  saveTask(task);
   buildTaskCard(task);
   // Clear input fields and close modal
   getTaskTitle.value = "";
