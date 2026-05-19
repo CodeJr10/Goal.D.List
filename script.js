@@ -95,6 +95,9 @@ const createNewTask = () => {
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "Delete";
   deleteBtn.classList.add("delete-btn");
+  deleteBtn.addEventListener("click", () => {
+  newDiv.remove();
+})
   newHeader.appendChild(deleteBtn);
 
   const taskDescriptionSection = document.createElement("div"); // 2nd section for task description
@@ -126,6 +129,7 @@ const createNewTask = () => {
   closeTaskModal();
 };
 createTaskBtn.addEventListener("click", createNewTask);
+
 
 // Date Display Functionality
 const dateEL = document.getElementById("todoDate");
