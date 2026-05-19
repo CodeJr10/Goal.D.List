@@ -65,7 +65,7 @@ const getTaskDate = document.getElementById("task-Date");
 //Flow -> Task Card (main div)
 // 2nd Flow -> Task Card Header (Title + Due Date + Task Status)
 
-const createNewTask = () => {
+const buildTaskCard = (task) => {
   const newDiv = document.createElement("div");
   newDiv.classList.add("task-card");
 
@@ -75,11 +75,11 @@ const createNewTask = () => {
   newDiv.appendChild(newHeader);
   const taskTitle = document.createElement("h3");
   taskTitle.classList.add("task-title");
-  taskTitle.textContent = getTaskTitle.value;
+  taskTitle.textContent = task.title;
   newHeader.appendChild(taskTitle);
 
   const taskDate = document.createElement("h5");
-  const rawDate = new Date(getTaskDate.value);
+  const rawDate = new Date(task.date);
   taskDate.textContent = rawDate.toLocaleDateString("en-US", {
     day: "numeric",
     month: "short",
@@ -96,8 +96,8 @@ const createNewTask = () => {
   deleteBtn.textContent = "Delete";
   deleteBtn.classList.add("delete-btn");
   deleteBtn.addEventListener("click", () => {
-  newDiv.remove();
-})
+    newDiv.remove();
+  });
   newHeader.appendChild(deleteBtn);
 
   const taskDescriptionSection = document.createElement("div"); // 2nd section for task description
@@ -106,7 +106,7 @@ const createNewTask = () => {
 
   const taskDescription = document.createElement("p");
   taskDescription.classList.add("task-Description");
-  taskDescription.textContent = getTaskDescription.value;
+  taskDescription.textContent = task.description;
   taskDescriptionSection.appendChild(taskDescription);
 
   const taskFooter = document.createElement("div");
@@ -114,22 +114,31 @@ const createNewTask = () => {
   newDiv.appendChild(taskFooter);
 
   const taskStatusBadge = document.createElement("span");
-  const statusData = updateTaskStatus(getTaskDate.value);
+  const statusData = updateTaskStatus(task.date);
   taskStatusBadge.textContent = statusData;
   taskStatusBadge.classList.add("task-card-badge", statusData.toLowerCase());
   taskFooter.appendChild(taskStatusBadge);
 
   const taskContainer = document.getElementsByClassName("task-list")[0];
   taskContainer.appendChild(newDiv);
+};
 
+const createNewTask = () => {
+  const task = {
+    title: getTaskTitle.value,
+    description: getTaskDescription.value,
+    date: getTaskDate.value,
+  };
+
+  buildTaskCard(task);
   // Clear input fields and close modal
   getTaskTitle.value = "";
   getTaskDescription.value = "";
   getTaskDate.value = "";
   closeTaskModal();
 };
-createTaskBtn.addEventListener("click", createNewTask);
 
+createTaskBtn.addEventListener("click", createNewTask);
 
 // Date Display Functionality
 const dateEL = document.getElementById("todoDate");
