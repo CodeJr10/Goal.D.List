@@ -86,9 +86,17 @@ const loadTask = () => {
   });
 };
 
+const deleteTask = (id) => {
+  const existingTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+  const updatedTasks = existingTasks.filter((task) => task.id !== id);
+
+  localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+};
 const buildTaskCard = (task) => {
   const newDiv = document.createElement("div");
   newDiv.classList.add("task-card");
+  newDiv.dataset.id = task.id;
 
   const newHeader = document.createElement("div");
   // first section of the task card which will contain the title, due date and status badge
@@ -118,6 +126,7 @@ const buildTaskCard = (task) => {
   deleteBtn.classList.add("delete-btn");
   deleteBtn.addEventListener("click", () => {
     newDiv.remove();
+    deleteTask(task.id);
   });
   newHeader.appendChild(deleteBtn);
 
@@ -146,6 +155,7 @@ const buildTaskCard = (task) => {
 
 const createNewTask = () => {
   const task = {
+    id: Date.now(),
     title: getTaskTitle.value,
     description: getTaskDescription.value,
     date: getTaskDate.value,
