@@ -78,6 +78,14 @@ const saveTask = (task) => {
   localStorage.setItem("tasks", JSON.stringify(existingTasks));
 };
 
+const loadTask = () => {
+  const existingTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+  existingTasks.forEach((task) => {
+    buildTaskCard(task);
+  });
+};
+
 const buildTaskCard = (task) => {
   const newDiv = document.createElement("div");
   newDiv.classList.add("task-card");
@@ -160,3 +168,5 @@ const today = new Date();
 const options = { weekday: "long", month: "long", day: "numeric" };
 
 dateEL.textContent = today.toLocaleDateString("en-US", options);
+
+loadTask();
